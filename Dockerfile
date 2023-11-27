@@ -6,14 +6,13 @@ WORKDIR /Webhook-for-WeatherBot
 
 
 # Copy only the necessary files for setting up dependencies
-COPY requirements.txt /Webhook-for-WeatherBot
-/requirements.txt
+COPY requirements.txt /Webhook-for-WeatherBot/requirements.txt
 
 # Install any needed packages specified in requirements.txt
 RUN pip install --no-cache-dir -r requirements.txt
 
 # Copy the rest of the application files
-COPY . /app
+COPY . /Webhook-for-WeatherBot
 
 # Make port 5000 available to the world outside this container
 EXPOSE 5000
