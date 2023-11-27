@@ -2,19 +2,24 @@
 FROM python:3.8-slim
 
 # Set the working directory to /app
-WORKDIR /app
+WORKDIR /Webhook-for-WeatherBot
 
-# Copy the current directory contents into the container at /app
-COPY . /app
+
+# Copy only the necessary files for setting up dependencies
+COPY requirements.txt /Webhook-for-WeatherBot
+/requirements.txt
 
 # Install any needed packages specified in requirements.txt
 RUN pip install --no-cache-dir -r requirements.txt
+
+# Copy the rest of the application files
+COPY . /app
 
 # Make port 5000 available to the world outside this container
 EXPOSE 5000
 
 # Define environment variable
-ENV FLASK_APP=app.py
+ENV FLASK_APP=webhook.py
 
 # Run app.py when the container launches
 CMD ["flask", "run", "--host=0.0.0.0"]
