@@ -45,7 +45,7 @@ def makeResponse(req):
     return {
     "fulfillmentText": speech,
     "fulfillmentMessages": speech,
-    "source": "apiai-weather-webhook"
+    "source": "DIALOGFLOW_CONSOLE"
     }
 
 if __name__ == '__main__':
