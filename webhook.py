@@ -25,7 +25,7 @@ def webhook():
 def makeResponse(req):
     if req.get("result").get("action") != "fetchWeatherForecast":
         return {}
-    result = req.get("result")
+    result = req.get("queryResult")
     parameters = result.get("parameters")
     city = parameters.get("geo-city")
     date = parameters.get("date")
@@ -52,20 +52,4 @@ if __name__ == '__main__':
     port = int(os.getenv('PORT', 5000))
     print("Starting app on port %d" % port)
     app.run(debug=False, port=port, host='0.0.0.0')
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
